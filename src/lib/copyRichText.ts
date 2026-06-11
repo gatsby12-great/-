@@ -30,3 +30,7 @@ export async function copyRichText(html: string, plainText: string) {
   selection?.removeAllRanges();
   document.body.removeChild(container);
 }
+
+export async function copyPlainText(text: string) {
+  await navigator.clipboard.writeText(text);
+}
