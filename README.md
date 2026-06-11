@@ -8,8 +8,9 @@
 
 - 左侧粘贴文章，右侧实时预览
 - 支持 Markdown 基础语法
-- 8 套排版主题：极简商务、小红书、知识干货、杂志感、科技蓝、暖橙促销、墨绿质感、暗色高级
+- 9 套排版主题：极简商务、小红书、知识干货、杂志感、科技蓝、暖橙促销、墨绿质感、暗色高级、Fable 橙色知识风
 - 组件库一键插入：封面导语、标题块、重点卡片、金句卡片、提醒框、步骤清单、双栏对比、按钮、分割线
+- Fable 橙色风组件：橙色编号标题、橙色金句卡片、上下对比卡片、端到端流程图、五段式彩色卡片、四宫格功能卡片、三平台对比卡片、风险提示表格、图注说明
 - 可调字体大小、行距、预览宽度
 - 一键复制富文本到公众号后台
 - 一键复制 HTML 源码
@@ -46,7 +47,7 @@ http://localhost:5173
 ### CLI 渲染
 
 ```bash
-npm run agent:render -- --input ./article.md --theme knowledge --out ./article.html
+npm run agent:render -- --input ./article.md --theme fable --out ./article.html
 ```
 
 ### 本地 HTTP API
@@ -60,7 +61,7 @@ npm run agent:server
 ```bash
 curl -X POST http://localhost:8787/api/render \
   -H "Content-Type: application/json" \
-  -d '{"markdown":"# 标题\n\n正文","themeId":"knowledge"}'
+  -d '{"markdown":"# 标题\n\n正文","themeId":"fable"}'
 ```
 
 更多说明见：

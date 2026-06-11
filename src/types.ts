@@ -6,7 +6,8 @@ export type ThemeId =
   | 'tech'
   | 'orange'
   | 'green'
-  | 'dark';
+  | 'dark'
+  | 'fable';
 
 export type FontSize = 'compact' | 'normal' | 'large';
 export type LineHeight = 'tight' | 'normal' | 'loose';

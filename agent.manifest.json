@@ -1,6 +1,6 @@
 {
   "name": "wechat-layout-tool",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "微信公众号排版工具：把 Markdown 或文章内容渲染成适合微信公众号后台粘贴的富文本 HTML。",
   "visual_entry": {
     "command": "npm run dev",
@@ -9,7 +9,7 @@
   },
   "agent_entrypoints": {
     "cli": {
-      "command": "npm run agent:render -- --input ./article.md --theme knowledge --out ./article.html",
+      "command": "npm run agent:render -- --input ./article.md --theme fable --out ./article.html",
       "description": "把本地 Markdown 文件渲染为公众号 HTML。"
     },
     "http": {
@@ -27,7 +27,7 @@
   },
   "render_request_schema": {
     "markdown": "string",
-    "themeId": "minimal | xiaohongshu | knowledge | magazine | tech | orange | green | dark",
+    "themeId": "minimal | xiaohongshu | knowledge | magazine | tech | orange | green | dark | fable",
     "options": {
       "fontSize": "compact | normal | large",
       "lineHeight": "tight | normal | loose",

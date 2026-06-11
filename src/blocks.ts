@@ -96,5 +96,115 @@ export const layoutBlocks: LayoutBlock[] = [
     name: '结尾按钮',
     description: '适合文章末尾引导行动。',
     snippet: `<p class="button-wrap"><a class="wechat-button" href="#">点击这里了解更多</a></p>`
+  },
+  {
+    id: 'fable-title',
+    group: 'Fable 橙色风',
+    name: '橙色编号标题',
+    description: '模仿上传示例里的 01 + 标题结构。',
+    snippet: `<section class="fable-title-row">
+  <section class="fable-title-num">01</section>
+  <h2 class="fable-title-text">这里写小标题</h2>
+</section>`
+  },
+  {
+    id: 'fable-punchline',
+    group: 'Fable 橙色风',
+    name: '橙色金句卡片',
+    description: '浅橙底 + 左侧橙色竖线，用来突出核心判断。',
+    snippet: `<section class="fable-punchline-card">
+  <p>这里写一句最有记忆点的判断。</p>
+</section>`
+  },
+  {
+    id: 'fable-compare-stack',
+    group: 'Fable 橙色风',
+    name: '上下对比卡片',
+    description: '适合旧方案 vs 新方案、软件 vs Skill、错误做法 vs 正确做法。',
+    snippet: `<section class="fable-compare-stack">
+  <section class="fable-compare-muted">
+    <p><strong>🔧 旧方法</strong></p>
+    <p>这里写旧方法的问题。</p>
+  </section>
+  <section class="fable-arrow">▼</section>
+  <section class="fable-compare-highlight">
+    <p><strong>🧠 新方法</strong></p>
+    <p>这里写新方法的优势。</p>
+  </section>
+</section>`
+  },
+  {
+    id: 'fable-flow',
+    group: 'Fable 橙色风',
+    name: '端到端流程图',
+    description: '适合解释自动化流程、工具链、Agent 执行步骤。',
+    snippet: `<section class="fable-flow">
+  <section class="fable-flow-start">🎙️ 输入：录一段口播，交给 AI</section>
+  <section class="fable-flow-arrow">↓</section>
+  <section class="fable-flow-step"><strong>第 1 步 · 听懂</strong><span>语音转文字，自动识别口头禅和重复句。</span></section>
+  <section class="fable-flow-arrow">↓</section>
+  <section class="fable-flow-step green"><strong>第 2 步 · 重组</strong><span>把散乱内容整理成钩子、痛点、转折、干货和引导。</span></section>
+  <section class="fable-flow-arrow">↓</section>
+  <section class="fable-flow-step red"><strong>第 3 步 · 守门</strong><span>发布前检查风险词、导流词和不适合表达。</span></section>
+  <section class="fable-flow-arrow">↓</section>
+  <section class="fable-flow-end">📦 输出：成稿 + 排版 + 标题 + 摘要</section>
+</section>`
+  },
+  {
+    id: 'fable-five-grid',
+    group: 'Fable 橙色风',
+    name: '五段式彩色卡片',
+    description: '适合展示 Hook / Pain / Turn / Value / CTA 这种结构。',
+    snippet: `<section class="fable-five-grid">
+  <section class="fable-mini-card orange"><p><strong>Hook 钩子</strong></p><p>前 3 秒留住人</p></section>
+  <section class="fable-mini-card amber"><p><strong>Pain 痛点</strong></p><p>说出用户的难</p></section>
+  <section class="fable-mini-card green"><p><strong>Turn 转折</strong></p><p>直到我发现</p></section>
+  <section class="fable-mini-card blue"><p><strong>Value 干货</strong></p><p>核心价值交付</p></section>
+  <section class="fable-mini-card purple"><p><strong>CTA 引导</strong></p><p>评论 / 收藏 / 关注</p></section>
+</section>`
+  },
+  {
+    id: 'fable-four-grid',
+    group: 'Fable 橙色风',
+    name: '四宫格功能卡片',
+    description: '适合展示四个功能、四个模块、四种能力。',
+    snippet: `<section class="fable-four-grid">
+  <section class="fable-feature-card"><p><strong>🎞️ 功能一</strong></p><p>这里写第一项功能说明。</p></section>
+  <section class="fable-feature-card"><p><strong>📑 功能二</strong></p><p>这里写第二项功能说明。</p></section>
+  <section class="fable-feature-card"><p><strong>😊 功能三</strong></p><p>这里写第三项功能说明。</p></section>
+  <section class="fable-feature-card"><p><strong>🎵 功能四</strong></p><p>这里写第四项功能说明。</p></section>
+</section>`
+  },
+  {
+    id: 'fable-platforms',
+    group: 'Fable 橙色风',
+    name: '三平台对比卡片',
+    description: '适合公众号、小红书、抖音、视频号等平台规格对比。',
+    snippet: `<section class="fable-platform-grid">
+  <section class="fable-platform-card red"><p><strong>📕 小红书</strong></p><p>3:4 图文感，适合收藏和搜索。</p></section>
+  <section class="fable-platform-card dark"><p><strong>🎵 抖音</strong></p><p>9:16 沉浸式，适合短视频推荐流。</p></section>
+  <section class="fable-platform-card green"><p><strong>💬 视频号</strong></p><p>社交链分发，适合私域和信任传播。</p></section>
+</section>`
+  },
+  {
+    id: 'fable-risk-table',
+    group: 'Fable 橙色风',
+    name: '风险提示表格',
+    description: '适合做平台规则、风险词、发布前检查清单。',
+    snippet: `<table class="fable-risk-table">
+  <tbody>
+    <tr><th>级别</th><th>类别</th><th>处理建议</th></tr>
+    <tr><td>🚫 硬拦截</td><td>极限表达</td><td>改成更稳妥的描述。</td></tr>
+    <tr><td>⚠️ 软提醒</td><td>标题过猛</td><td>降低承诺感，保留观点感。</td></tr>
+    <tr><td>✅ 可通过</td><td>普通表述</td><td>保持自然，不要过度营销。</td></tr>
+  </tbody>
+</table>`
+  },
+  {
+    id: 'fable-caption',
+    group: 'Fable 橙色风',
+    name: '图注说明',
+    description: '适合放在流程图、表格、对比图下面。',
+    snippet: `<p class="fable-caption">▲ 这里写图注说明，让读者一眼看懂这张图在表达什么</p>`
   }
 ];
