@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { AgentPanel } from './AgentPanel';
 import { layoutBlocks } from './blocks';
 import { copyPlainText, copyRichText } from './lib/copyRichText';
 import { exportHtmlFile } from './lib/exportHtml';
@@ -20,6 +21,7 @@ export default function App() {
   const [options, setOptions] = useState<EditorOptions>(DEFAULT_OPTIONS);
   const [status, setStatus] = useState('复制到公众号后台');
   const [showSource, setShowSource] = useState(false);
+  const [showAgentPanel, setShowAgentPanel] = useState(true);
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -67,12 +69,15 @@ export default function App() {
     <main className="app-shell">
       <header className="topbar">
         <div>
-          <p className="eyebrow">Wechat Layout Tool · v0.2</p>
+          <p className="eyebrow">Wechat Layout Tool · v0.3</p>
           <h1>微信公众号排版工具</h1>
-          <p className="subtitle">Markdown 写作 + 秀米式组件插入 + 公众号富文本复制</p>
+          <p className="subtitle">可视化排版 + 秀米式组件插入 + Codex / Agent 可调用</p>
         </div>
 
         <div className="actions">
+          <button className="secondary-button" onClick={() => setShowAgentPanel((value) => !value)}>
+            {showAgentPanel ? '隐藏 Agent 面板' : '显示 Agent 面板'}
+          </button>
           <button className="secondary-button" onClick={() => setShowSource((value) => !value)}>
             {showSource ? '看预览' : '看源码'}
           </button>
@@ -128,6 +133,8 @@ export default function App() {
         <button className="ghost-button" onClick={() => setArticle('')}>清空</button>
         <span className="counter">{wordCount} 字</span>
       </section>
+
+      {showAgentPanel && <AgentPanel themeId={themeId} options={options} previewHtml={previewHtml} />}
 
       <section className="theme-panel">
         {themes.map((item) => (

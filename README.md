@@ -1,8 +1,8 @@
 # 微信公众号排版工具
 
-一个本地可运行的微信公众号图文排版工具。
+一个本地可运行、可视化操作、也能被 Codex / 其他 Agent 调用的微信公众号图文排版工具。
 
-这一版参考秀米编辑器的思路：不只是换主题，而是把常用公众号排版拆成可插入的模块。
+这一版参考秀米编辑器的思路：不只是换主题，而是把常用公众号排版拆成可插入的模块，同时提供 CLI 和本地 HTTP API。
 
 ## 功能
 
@@ -15,6 +15,8 @@
 - 一键复制 HTML 源码
 - 一键导出 HTML 文件
 - 自动保存本地草稿
+- Agent 调用面板：可复制 CLI 命令和 HTTP API 示例
+- Codex / 其他 Agent 可调用：CLI + 本地 HTTP API + manifest
 - 不登录、不接数据库、不接公众号 API
 
 ## 安装运行
@@ -30,7 +32,7 @@ npm run dev
 http://localhost:5173
 ```
 
-## 使用方法
+## 可视化使用
 
 1. 左侧输入或粘贴文章。
 2. 选择排版主题。
@@ -39,37 +41,41 @@ http://localhost:5173
 5. 点击「复制到公众号后台」。
 6. 打开微信公众号后台，新建图文，直接粘贴。
 
-## 组件写法说明
+## Codex / Agent 调用
 
-工具本质上是 Markdown + HTML 组件混排。
+### CLI 渲染
 
-普通内容直接写 Markdown：
-
-```md
-# 标题
-
-## 小标题
-
-**重点句**
-
-> 引用内容
+```bash
+npm run agent:render -- --input ./article.md --theme knowledge --out ./article.html
 ```
 
-高级排版可以用内置组件，比如：
+### 本地 HTTP API
 
-```html
-<section class="lead-card">
-  <p>这里写文章导语。</p>
-</section>
+```bash
+npm run agent:server
 ```
 
-组件会在预览和复制时自动转成适合公众号粘贴的 inline style。
+然后请求：
 
-## 为什么第一版不做自动发布？
+```bash
+curl -X POST http://localhost:8787/api/render \
+  -H "Content-Type: application/json" \
+  -d '{"markdown":"# 标题\n\n正文","themeId":"knowledge"}'
+```
+
+更多说明见：
+
+```text
+docs/AGENT_API.md
+AGENTS.md
+agent.manifest.json
+```
+
+## 为什么现在不做公众号自动发布？
 
 公众号自动发布需要接入微信公众号接口，涉及 AppID、AppSecret、IP 白名单、素材上传、草稿箱、发布权限等。
 
-现在先解决最高频的问题：排版、预览、复制。
+现在先解决最高频的问题：排版、预览、复制、Agent 生成 HTML。
 
 ## 后续可升级方向
 
@@ -78,4 +84,5 @@ http://localhost:5173
 - AI 自动生成摘要和结尾引导
 - 上传图片并插入图文模块
 - 文章素材库
+- MCP Server 形式封装
 - 接入微信公众号草稿箱 API

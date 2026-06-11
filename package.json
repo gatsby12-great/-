@@ -1,12 +1,14 @@
 {
   "name": "wechat-layout-tool",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "vite preview --host 0.0.0.0",
+    "agent:render": "node scripts/render.mjs",
+    "agent:server": "node scripts/server.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
@@ -21,5 +23,8 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "@types/dompurify": "latest"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

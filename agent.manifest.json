@@ -1,0 +1,44 @@
+{
+  "name": "wechat-layout-tool",
+  "version": "0.3.0",
+  "description": "微信公众号排版工具：把 Markdown 或文章内容渲染成适合微信公众号后台粘贴的富文本 HTML。",
+  "visual_entry": {
+    "command": "npm run dev",
+    "url": "http://localhost:5173",
+    "description": "打开可视化编辑器，支持主题选择、组件插入、实时预览、复制富文本。"
+  },
+  "agent_entrypoints": {
+    "cli": {
+      "command": "npm run agent:render -- --input ./article.md --theme knowledge --out ./article.html",
+      "description": "把本地 Markdown 文件渲染为公众号 HTML。"
+    },
+    "http": {
+      "command": "npm run agent:server",
+      "base_url": "http://localhost:8787",
+      "description": "启动本地 HTTP API，供 Codex、其他 Agent 或自动化工作流调用。"
+    }
+  },
+  "http_api": {
+    "GET /health": "健康检查",
+    "GET /api/manifest": "读取 Agent manifest",
+    "GET /api/themes": "读取可用主题",
+    "GET /api/blocks": "读取可插入排版组件",
+    "POST /api/render": "输入 markdown/theme/options，返回 html/plainText/wordCount"
+  },
+  "render_request_schema": {
+    "markdown": "string",
+    "themeId": "minimal | xiaohongshu | knowledge | magazine | tech | orange | green | dark",
+    "options": {
+      "fontSize": "compact | normal | large",
+      "lineHeight": "tight | normal | loose",
+      "previewWidth": "phone | wechat"
+    }
+  },
+  "render_response_schema": {
+    "html": "string",
+    "plainText": "string",
+    "wordCount": "number",
+    "themeId": "string",
+    "options": "object"
+  }
+}
